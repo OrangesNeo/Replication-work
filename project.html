@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17191a" />
+    <meta name="description" content="论文复现项目日志：记录实验过程、结果、偏差和下一步计划。" />
+    <title>项目日志 · 复现札记</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="project.css" />
+  </head>
+  <body class="project-page">
+    <div class="project-shell">
+      <header class="project-topbar">
+        <a class="project-brand" href="index.html" aria-label="返回复现札记概览"><span class="brand-mark">R</span><span><strong>复现札记</strong><small>REPLICA NOTES</small></span></a>
+        <div class="project-top-actions"><a class="back-link" href="index.html#projectsSection">← 返回我的复现</a><button class="icon-button" id="projectMenuButton" type="button" title="更多操作" aria-label="更多操作"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></button></div>
+      </header>
+
+      <main class="project-main-wrap">
+        <div class="project-breadcrumb"><a href="index.html">研究空间</a><span>/</span><a href="index.html#projectsSection">我的复现</a><span>/</span><strong id="breadcrumbTitle">项目日志</strong></div>
+        <section class="project-hero">
+          <div class="project-hero-copy"><p class="eyebrow">RESEARCH PROJECT · <span id="heroArea">SYSTEMS</span></p><h1 id="projectTitle">项目日志</h1><p class="hero-subtitle" id="projectSubtitle">正在加载项目资料…</p><div class="hero-tags" id="projectTags"></div></div>
+          <div class="project-hero-side"><a class="outline-button paper-link" id="paperLink" href="#" target="_blank" rel="noopener">打开论文原文 <span>↗</span></a><div class="hero-progress"><div class="hero-progress-top"><span>复现完成度</span><strong id="progressValue">0%</strong></div><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><label class="hero-progress-edit">更新进度 <input id="progressSlider" type="range" min="0" max="100" value="0" /></label></div></div>
+        </section>
+
+        <div class="project-layout">
+          <section class="log-column">
+            <div class="log-heading"><div><p class="eyebrow">FIELD NOTES</p><h2>实验日志</h2></div><span class="log-count" id="logCount">0 条记录</span></div>
+            <article class="composer-card">
+              <div class="composer-top"><span class="compose-status"><span class="status-dot"></span>新建记录</span><span class="autosave-status" id="autosaveStatus">本地草稿</span></div>
+              <input class="log-title-input" id="logTitle" type="text" placeholder="给这次实验起个标题…" autocomplete="off" />
+              <div class="format-toolbar" role="toolbar" aria-label="文本格式">
+                <button type="button" data-command="bold" title="粗体"><strong>B</strong></button><button type="button" data-command="italic" title="斜体"><em>I</em></button><button type="button" data-command="underline" title="下划线"><u>U</u></button><span class="toolbar-divider"></span><button type="button" data-block="h2" title="小标题">H2</button><button type="button" data-block="h3" title="三级标题">H3</button><button type="button" data-command="insertUnorderedList" title="项目符号">•</button><button type="button" data-command="insertOrderedList" title="编号列表">1.</button><span class="toolbar-divider"></span><button type="button" data-command="formatBlock" data-value="blockquote" title="引用">“</button><button type="button" data-command="formatBlock" data-value="pre" title="代码块">&lt;/&gt;</button><button type="button" id="addLinkButton" title="插入链接">↗</button>
+              </div>
+              <div class="editor-wrap"><div id="logEditor" class="log-editor" contenteditable="true" data-placeholder="记录今天跑了什么实验、观察到哪些偏差，以及下一步准备怎么做…"></div></div>
+              <div class="composer-bottom"><span class="editor-hint">选中文字后可使用上方工具添加格式。</span><button class="primary-button save-log-button" id="saveLogButton" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg>保存日志</button></div>
+            </article>
+            <div class="timeline" id="timeline"></div>
+            <div class="timeline-empty" id="timelineEmpty"><span>✦</span><h3>从第一条记录开始</h3><p>把实验过程写下来，之后再回看时，每一个数字都会有来处。</p></div>
+          </section>
+
+          <aside class="project-sidebar">
+            <section class="side-panel"><div class="side-panel-head"><p class="eyebrow">PROJECT STATUS</p><button class="status-select-button" id="statusButton" type="button"><span class="status-dot"></span><span id="projectStatus">进行中</span><span>⌄</span></button></div><div class="side-metrics"><div><span>实验记录</span><strong id="sideLogCount">0</strong></div><div><span>最近更新</span><strong id="lastUpdated">—</strong></div></div><label class="side-field"><span>项目备注</span><textarea id="projectNote" rows="4" placeholder="写下这个项目的复现目标…"></textarea></label><button class="outline-button full-button" id="saveProjectNote" type="button">保存项目备注</button></section>
+            <section class="side-panel references-panel"><p class="eyebrow">REFERENCE</p><h3>论文信息</h3><p id="paperMeta">—</p><a class="reference-link" id="referenceLink" href="#" target="_blank" rel="noopener">查看论文原文 ↗</a></section>
+            <section class="side-panel tip-panel"><span class="tip-icon">↳</span><p>复现日志不追求一次写完。先记下实验事实，再回来补充结论。</p></section>
+          </aside>
+        </div>
+      </main>
+    </div>
+    <dialog class="info-dialog rename-dialog" id="projectRenameModal">
+      <form method="dialog" id="projectRenameForm">
+        <div class="dialog-head"><div><p class="eyebrow">PROJECT SETTINGS</p><h2>重命名项目</h2></div><button class="icon-button" id="closeProjectRename" type="button" title="关闭" aria-label="关闭"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+        <label class="field full"><span>项目名称</span><input id="projectRenameInput" type="text" maxlength="80" autocomplete="off" required /></label>
+        <p class="rename-hint">名称会同步回概览页，已有实验日志不会改变。</p>
+        <div class="dialog-actions"><button class="ghost-button" id="cancelProjectRename" type="button">取消</button><button class="primary-button" type="submit">保存名称</button></div>
+      </form>
+    </dialog>
+    <div class="toast" id="projectToast" role="status" aria-live="polite">已保存</div>
+    <script src="project.js"></script>
+  </body>
+</html>

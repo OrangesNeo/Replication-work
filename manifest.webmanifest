@@ -1,0 +1,10 @@
+{
+  "name": "复现札记 · 研究进度工作台",
+  "short_name": "复现札记",
+  "description": "记录论文复现进度、实验结果和研究笔记。",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f6f8f5",
+  "theme_color": "#17191a",
+  "lang": "zh-CN"
+}

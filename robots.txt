@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# 部署后，把下面一行的域名替换成你的真实网址：
+# Sitemap: https://YOUR-DOMAIN.example/sitemap.xml

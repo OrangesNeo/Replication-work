@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17191a" />
+    <meta name="description" content="复现札记：记录论文复现进度、实验结果和研究笔记的个人工作台。" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="复现札记 · 研究进度工作台" />
+    <meta property="og:description" content="把读过的论文，变成自己的证据。记录每一次实验与偏差。" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <title>复现札记 · 研究进度工作台</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-lockup">
+          <div class="brand-mark" aria-hidden="true">R</div>
+          <div>
+            <p class="brand-name">复现札记</p>
+            <p class="brand-subtitle">REPLICA NOTES</p>
+          </div>
+        </div>
+
+        <div class="sidebar-label">工作台</div>
+        <nav class="primary-nav" aria-label="主导航">
+          <a class="nav-item active" href="#overviewSection" data-nav-target="overviewSection">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            </span>
+            <span>概览</span>
+            <span class="nav-count">04</span>
+          </a>
+          <a class="nav-item" href="#projectsSection" data-nav-target="projectsSection">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"/><path d="M4 5.5v16M8 7h8M8 11h8"/></svg>
+            </span>
+            <span>我的复现</span>
+          </a>
+          <a class="nav-item" href="#activitySection" data-nav-target="activitySection">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4v16M18 4v16M6 7h12M6 12h12M6 17h12"/><path d="M4 4h4M16 4h4M4 20h4M16 20h4"/></svg>
+            </span>
+            <span>实验日志</span>
+            <span class="nav-count new">3</span>
+          </a>
+          <a class="nav-item" href="#bookmarks" data-action="bookmarks">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 3 12 3v15l-6-3-6 3V3Z"/><path d="m6 6 6 3 6-3"/></svg>
+            </span>
+            <span>书签</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-label space-label">研究空间</div>
+        <div class="space-list">
+          <button class="space-item" type="button" data-space="deep"><span class="space-dot coral"></span>深度学习</button>
+          <button class="space-item" type="button" data-space="systems"><span class="space-dot sky"></span>系统论文</button>
+          <button class="space-item" type="button" data-space="tools"><span class="space-dot violet"></span>工具与方法</button>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="sync-status"><span class="sync-dot"></span><span>本地已同步</span></div>
+          <button class="profile-chip" id="profileButton" type="button" title="打开个人设置">
+            <span class="avatar">L</span>
+            <span class="profile-name">Lin 的空间</span>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m7 10 5 5 5-5"/></svg>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="breadcrumbs"><span>研究空间</span><span class="slash">/</span><strong>概览</strong></div>
+          <div class="topbar-actions">
+            <label class="search-box" for="searchInput">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+              <input id="searchInput" type="search" placeholder="搜索论文、标签或记录" autocomplete="off" />
+              <span class="shortcut">⌘ K</span>
+            </label>
+            <button class="icon-button notification-button" id="notificationButton" type="button" title="查看通知" aria-label="查看通知">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4"/></svg>
+              <span class="notification-dot"></span>
+            </button>
+            <button class="icon-button" id="moreButton" type="button" title="更多选项" aria-label="更多选项">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg>
+            </button>
+          </div>
+        </header>
+
+        <div class="content-wrap">
+          <section class="page-intro" id="overviewSection">
+            <div>
+              <p class="eyebrow">WEEK 34 · 2024</p>
+              <h1>把读过的论文，<em>变成自己的证据。</em></h1>
+              <p class="intro-copy">记录每一次实验、每一个偏差，以及终于对上的那个数字。</p>
+              <div class="daily-quote" id="dailyQuote">
+                <p class="daily-quote-label">DAILY QUOTE · <span id="dailyQuoteDate">TODAY</span></p>
+                <blockquote id="dailyQuoteText">千里之行，始于足下。</blockquote>
+                <cite id="dailyQuoteSource">— 老子，《道德经》第六十四章</cite>
+              </div>
+            </div>
+            <button class="primary-button" id="openModalButton" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              <span>新增复现记录</span>
+            </button>
+          </section>
+
+          <section class="stats-grid" aria-label="复现概览">
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-label">进行中</span><span class="stat-mark lime">↗</span></div>
+              <strong class="stat-value" id="activeCount">03</strong>
+              <span class="stat-foot">较上周 <b>+1</b></span>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-label">已完成</span><span class="stat-mark coral">✓</span></div>
+              <strong class="stat-value" id="completedCount">08</strong>
+              <span class="stat-foot">本月完成 <b>02</b> 篇</span>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-label">实验记录</span><span class="stat-mark sky">≡</span></div>
+              <strong class="stat-value" id="noteCount">14</strong>
+              <span class="stat-foot">平均每篇 <b>1.8</b> 条</span>
+            </article>
+            <article class="stat-card accent-card">
+              <div class="stat-top"><span class="stat-label">连续记录</span><span class="stat-mark dark">✦</span></div>
+              <strong class="stat-value">12 <small>天</small></strong>
+              <span class="stat-foot">保持节奏，继续前进</span>
+            </article>
+          </section>
+
+          <section class="focus-grid">
+            <article class="focus-card">
+              <div class="focus-head">
+                <div class="status-pill"><span class="status-dot"></span>当前主线</div>
+                <button class="text-button" id="focusDetailsButton" type="button">查看详情 <span>↗</span></button>
+              </div>
+              <div class="focus-body">
+                <div class="focus-copy">
+                  <p class="focus-kicker" id="focusKicker">FOCUS / SYSTEMS · DEEP LEARNING</p>
+                  <h2 id="focusTitle">FlashAttention</h2>
+                  <p class="focus-title" id="focusSubtitle">Fast and Memory-Efficient Exact Attention with IO-Awareness</p>
+                  <p class="focus-author" id="focusAuthor">Tri Dao · Daniel Y. Fu · Stefano Ermon</p>
+                  <div class="tag-row" id="focusTags"><span class="tag dark-tag">CUDA</span><span class="tag">Attention</span><span class="tag">NeurIPS 2022</span></div>
+                </div>
+                <div class="focus-progress">
+                  <div class="ring" id="focusRing" aria-label="完成度 68%"><span id="focusProgressText">68<small>%</small></span></div>
+                  <div class="progress-caption"><span>复现完成度</span><strong id="focusEta">进行中</strong></div>
+                </div>
+              </div>
+              <div class="focus-note"><span class="note-icon">↳</span><p id="focusNoteText">正在对齐 backward kernel，显存峰值比论文报告高出 12%。</p><time id="focusNoteTime">2 小时前</time></div>
+            </article>
+            <aside class="signal-card">
+              <div class="signal-head"><span>本周实验信号</span><span class="signal-period">W34</span></div>
+              <div class="signal-number">+24<span>%</span></div>
+              <p>有效实验时长<br /><strong>相比上周</strong></p>
+              <div class="mini-chart" aria-hidden="true">
+                <span style="height: 32%"></span><span style="height: 48%"></span><span style="height: 41%"></span><span style="height: 62%"></span><span style="height: 57%"></span><span style="height: 80%"></span><span style="height: 69%"></span><span class="today" style="height: 96%"></span>
+              </div>
+              <div class="chart-labels"><span>一</span><span>三</span><span>五</span><span>日</span></div>
+            </aside>
+          </section>
+
+          <section class="content-grid" id="projectsSection">
+            <div class="projects-panel">
+              <div class="section-heading">
+                <div><p class="eyebrow">RESEARCH QUEUE</p><h2>我的复现</h2></div>
+                <div class="filter-tabs" role="tablist" aria-label="筛选复现状态">
+                  <button class="filter-tab active" data-filter="all" type="button">全部 <span id="allCount">04</span></button>
+                  <button class="filter-tab" data-filter="进行中" type="button">进行中</button>
+                  <button class="filter-tab" data-filter="已完成" type="button">已完成</button>
+                </div>
+              </div>
+              <div class="project-list" id="projectsList"></div>
+              <div class="empty-state" id="emptyState" hidden>没有匹配的复现记录，试试换个关键词。</div>
+            </div>
+
+            <aside class="activity-panel" id="activitySection">
+              <div class="section-heading compact"><div><p class="eyebrow">LATEST NOTES</p><h2>最近记录</h2></div><button class="icon-button small" id="viewActivityButton" type="button" title="查看全部记录" aria-label="查看全部记录"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button></div>
+              <div class="activity-list" id="activityList"></div>
+              <button class="outline-button" id="openModalButtonSecondary" type="button"><span>+</span> 写一条新记录</button>
+            </aside>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <dialog class="update-dialog" id="updateModal">
+      <form method="dialog" id="updateForm">
+        <div class="dialog-head"><div><p class="eyebrow">NEW RESEARCH NOTE</p><h2>记录一次复现进展</h2></div><button class="icon-button" id="closeModalButton" type="button" title="关闭" aria-label="关闭"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+        <div class="form-grid">
+          <label class="field full"><span>论文 / 项目</span><input name="project" type="text" placeholder="例如：FlashAttention" required /></label>
+          <label class="field"><span>当前状态</span><select name="status"><option>进行中</option><option>已完成</option></select></label>
+          <label class="field"><span>完成度 <output id="progressOutput">50%</output></span><input name="progress" id="progressInput" type="range" min="0" max="100" value="50" /></label>
+          <label class="field full"><span>这次有什么发现？</span><textarea name="note" rows="4" placeholder="记录关键数字、偏差或下一步计划…" required></textarea></label>
+        </div>
+        <div class="dialog-actions"><button class="ghost-button" id="cancelModalButton" type="button">取消</button><button class="primary-button" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg>保存记录</button></div>
+      </form>
+    </dialog>
+
+    <dialog class="info-dialog" id="infoModal">
+      <div class="dialog-head"><div><p class="eyebrow" id="infoEyebrow">REPLICA NOTES</p><h2 id="infoTitle">研究信息</h2></div><button class="icon-button" id="closeInfoButton" type="button" title="关闭" aria-label="关闭"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+      <div class="info-body" id="infoBody"></div>
+      <div class="dialog-actions"><button class="ghost-button" id="dismissInfoButton" type="button">知道了</button><a class="primary-button info-link" id="infoLink" href="#" target="_blank" rel="noopener" hidden>打开论文 <span>↗</span></a></div>
+    </dialog>
+
+    <dialog class="info-dialog" id="detailsModal">
+      <div class="dialog-head"><div><p class="eyebrow">PROJECT DETAIL</p><h2 id="detailsTitle">FlashAttention</h2></div><button class="icon-button" id="closeDetailsButton" type="button" title="关闭" aria-label="关闭"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+      <div class="detail-summary" id="detailsBody"></div>
+      <div class="dialog-actions"><button class="ghost-button" id="dismissDetailsButton" type="button">关闭</button><a class="primary-button info-link" id="detailsLink" href="#" target="_blank" rel="noopener">阅读原文 <span>↗</span></a></div>
+    </dialog>
+
+    <dialog class="info-dialog rename-dialog" id="renameModal">
+      <form method="dialog" id="renameForm">
+        <div class="dialog-head"><div><p class="eyebrow">PROJECT SETTINGS</p><h2>重命名项目</h2></div><button class="icon-button" id="closeRenameButton" type="button" title="关闭" aria-label="关闭"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+        <label class="field full"><span>项目名称</span><input id="renameInput" type="text" maxlength="80" autocomplete="off" required /></label>
+        <p class="rename-hint">名称会同步到项目日志和最近记录，已有实验内容不会改变。</p>
+        <div class="dialog-actions"><button class="ghost-button" id="cancelRenameButton" type="button">取消</button><button class="primary-button" type="submit">保存名称</button></div>
+      </form>
+    </dialog>
+
+    <dialog class="info-dialog activity-edit-dialog" id="activityEditModal">
+      <form method="dialog" id="activityEditForm">
+        <div class="dialog-head"><div><p class="eyebrow">EDIT FIELD NOTE</p><h2>编辑最近记录</h2></div><button class="icon-button" id="closeActivityEditButton" type="button" title="关闭" aria-label="关闭"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+        <label class="field full"><span>记录标题</span><input id="activityTitleInput" type="text" maxlength="100" required /></label>
+        <label class="field full activity-body-field"><span>记录内容</span><textarea id="activityBodyInput" rows="6" maxlength="1000" required></textarea></label>
+        <p class="rename-hint">修改后会立即同步到首页的最近记录和当前主线摘要。</p>
+        <div class="dialog-actions"><button class="ghost-button" id="cancelActivityEditButton" type="button">取消</button><button class="primary-button" type="submit">保存修改</button></div>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">记录已保存</div>
+    <script src="app.js"></script>
+  </body>
+</html>
